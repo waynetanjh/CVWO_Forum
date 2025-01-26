@@ -1,17 +1,38 @@
-<div class="container-xl">
+<div class="container-xl title">
     <h2>All Posts</h2>
+</div>
+
+<div class="container-xl">
+    
+    <div id="welcome">
+
+    </div>
 </div>
 
 <div class="container-xl">
     <% @posts.all.each do |post| %>
     <div class="card border-dark mb-3" style="max-width: 50rem;">
-        <div class="card-header">
-            <%= post.post_title%>
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Title: <%= post.post_title %></span>
+        
+            <% if post.user == current_user %>
+                <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary" %>
+            <% end %>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Content</h5>
-          <p class="card-text"><%= post.content%></p>
-          <a href="#" class="btn btn-primary">Edit</a>
+            <p> @<%= post.user.name %> </p>
+            <h5 class="card-title">Content</h5>
+            <p class="card-text"><%= simple_format(post.content) %></p>
+
+            <div class="button-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+                <!-- Like Button on the left -->
+                <div id="like-button-<%= post.id %>" 
+                    data-likes="<%= post.likes.count %>" 
+                    data-post-id="<%= post.id %>"
+                    data-status="<%= post.likes.exists?(user: current_user) ? 'liked' : 'unliked' %>">
+                    <!-- React component for Like Button will be rendered here -->
+                </div>
+            </div>
         </div>
     </div>
     <%end%>
