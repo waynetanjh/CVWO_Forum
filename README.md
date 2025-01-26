@@ -1,14 +1,16 @@
 # README
 
+How to start the server 
 1. Install database
-rails db:create 
+rails db:create
+rails db:migrate
 
-2. Install gem file
+3. Install gem file
 bundle install
 
-3. To run server rails s
+4. To run server rails s
 
-If there are issues with components loading 
+If there are issues with react components loading (good to do if you start the server for the first time) 
 - stop the server
 - run yarn build
 - run rails assets:precompile
