@@ -1,30 +1,39 @@
 # README
 
-can add functionality for error checking for models 
-can DRY the error checking
+1. Install database
+rails db:create 
 
+2. Install gem file
+bundle install
+
+3. To run server rails s
+
+If there are issues with components loading 
+- stop the server
+- run yarn build
+- run rails assets:precompile
+- run "server s" to restart the server
+
+I am using esbuilder instead of webpacker. For front end i am using react and some ruby on rails with bootstrap framework. 
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* versions
+ruby: ruby 3.3.5
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+  "dependencies": 
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.12",
+    "esbuild": "^0.24.2",
+    "jquery": "^3.7.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2"
 
 * ...
 # Forum
-# CVWO_Forum
